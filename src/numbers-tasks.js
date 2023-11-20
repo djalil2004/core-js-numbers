@@ -316,10 +316,13 @@ function getSumOfDigits(/* num */) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  const cuber = num / 2;
+  if (cuber % 2 !== 0) {
+    return false;
+  }
+  return cuber === 2 ? true : isPowerOfTwo(cuber);
 }
-
 /**
  * Returns the sine of a number.
  *
@@ -605,8 +608,8 @@ function getRandomInteger(/* min, max */) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
+function getHypotenuse(a, b) {
+  return Math.hypot(a, b);
 }
 
 /**
@@ -622,8 +625,11 @@ function getHypotenuse(/* a, b */) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  if (number > 0) {
+    return Math.ceil(number / 2);
+  }
+  return -Math.floor(number / 2);
 }
 
 module.exports = {
